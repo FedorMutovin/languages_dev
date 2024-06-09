@@ -1,4 +1,4 @@
-x-app: &app
+x-app-api: &api
   build:
     context: ../languages_api/.dockerdev
     args:
@@ -12,7 +12,7 @@ x-app: &app
     - /app/tmp/pids
 
 x-backend: &backend
-  <<: *app
+  <<: *api
   stdin_open: true
   tty: true
   volumes:
