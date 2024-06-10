@@ -64,7 +64,7 @@ interaction:
 
 provision:
   - '[[ "$RESET_DOCKER" == "true" ]] && echo "Re-creating the Docker env from scratch..." && dip compose down --volumes || echo "Re-provisioning the Docker env..."'
-  - dip compose up -d postgres redis
+  - dip compose up -d postgres redis quasar
   - dip bundle install
   - dip rails db:prepare
   - dip rails db:test:prepare
