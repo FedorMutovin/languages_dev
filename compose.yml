@@ -1,6 +1,7 @@
 x-app-api: &api
   build:
     context: ../languages_api/.dockerdev
+    target: development
     args:
       RUBY_VERSION: '3.3.0'
       PG_MAJOR: '16'
