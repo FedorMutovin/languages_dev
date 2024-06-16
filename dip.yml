@@ -62,6 +62,33 @@ interaction:
     service: redis
     command: redis-cli -h redis
 
+  cdk:
+    service: cdk
+    command: cdk
+    subcommands:
+      synth:
+        description: "Synthesize CloudFormation template from CDK application"
+        service: cdk
+        command: cdk synth
+      deploy:
+        description: "Deploy CDK stack"
+        service: cdk
+        command: cdk deploy
+      diff:
+        description: "Compare deployed stack with current state"
+        service: cdk
+        command: cdk diff
+
+      test:
+        description: "Run tests"
+        service: cdk
+        command: npm run test
+
+      build:
+        description: "Run build"
+        service: cdk
+        command: npm run build
+
 provision:
   - '[[ "$RESET_DOCKER" == "true" ]] && echo "Re-creating the Docker env from scratch..." && dip compose down --volumes || echo "Re-provisioning the Docker env..."'
   - dip compose up -d postgres redis quasar
